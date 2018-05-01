@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Title</title>
+
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+    $(document).ready(function () {
+        var user = {
+            "0": {
+                "name": "new 1",
+                "quantity": "1",
+                "details": "capsium - 2<br>tomato - 2<br>mushroom - 1<br>",
+                "price": "20"
+            },
+            "1": {
+                "name": "new 1",
+                "quantity": "1",
+                "details": "capsium - 2<br>tomato - 2<br>mushroom - 1<br>",
+                "price": "20"
+            }
+        };
+        sessionStorage.setItem('user1', JSON.stringify(user));
+
+        var retrievedObject = JSON.parse(sessionStorage.getItem('user1'));
+        alert(retrievedObject['1']['name']);
+        console.log('user1: ', JSON.parse(retrievedObject));
+
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+@import url(https://fonts.googleapis.com/css?family=Megrim);
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.loader .line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+}
+.loader .line.first {
+  background: #FE4365;
+}
+.loader .line.second {
+  background: #C7F464;
+}
+.loader .line.third {
+  background: #4ECDC4;
+}
+.loader .line.fourth {
+  background: #556270;
+}
+.loader .mask {
+  position: absolute;
+  z-index: 2;
+}
+.loader .mask.horizontal {
+  width: 100%;
+  height: calc(50% - 1px);
+}
+.loader .mask.horizontal.top {
+  top: 0;
+}
+.loader .mask.horizontal.bottom {
+  bottom: 0;
+}
+.loader .mask.vertical {
+  height: 100%;
+  width: calc(50% - 1px);
+}
+.loader .mask.vertical.right {
+  right: 0;
+}
+.loader .mask.vertical.left {
+  left: 0;
+}
+.loader .mask.top-right {
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 271px 200px 0;
+}
+.loader .mask.bottom-left {
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 0 0 271px;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+.loader .mask.top-left {
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 271px 0 0;
+}
+.loader .mask.bottom-right {
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 200px 271px;
+}
+.loader.first {
+  background: #F9D423;
+}
+.loader.first .mask {
+  background: #F9D423;
+}
+.loader.second {
+  background: #FE4365;
+}
+.loader.second .mask {
+  background: #FE4365;
+}
+.loader.third {
+  background: #C7F464;
+}
+.loader.third .mask.top-right {
+  border-color: transparent #C7F464 transparent transparent;
+}
+.loader.third .mask.bottom-left {
+  border-color: transparent transparent transparent #C7F464;
+}
+.loader.fourth {
+  background: #4ECDC4;
+}
+.loader.fourth .mask.top-left {
+  border-color: #4ECDC4 transparent transparent transparent;
+}
+.loader.fourth .mask.bottom-right {
+  border-color: transparent transparent #4ECDC4 transparent;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #556270;
+}
+.content h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  font-family: "Megrim", cursive;
+  font-size: 80px;
+  color: white;
+  text-align: center;
+}
+.content h1 .underline {
+  position: relative;
+  display: block;
+  width: 160px;
+  height: 5px;
+  background: white;
+  margin-top: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-48%);
+          transform: translateX(-48%);
+}
