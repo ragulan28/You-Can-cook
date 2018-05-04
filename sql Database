@@ -1,0 +1,285 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jul 31, 2017 at 02:00 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `eat_lot`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_details`
+--
+
+CREATE TABLE `admin_details` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin_details`
+--
+
+INSERT INTO `admin_details` (`id`, `email`, `password`, `name`) VALUES
+(2, 'Ragulan28@gmail.com', '12345678', 'ragulan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cooker_details`
+--
+
+CREATE TABLE `cooker_details` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cooker_details`
+--
+
+INSERT INTO `cooker_details` (`id`, `email`, `password`, `name`) VALUES
+(96, 'cook11', '124324dev', 'dcsvs'),
+(97, 'cook1', 'cook12345678', 'Cooker 2'),
+(98, 'cook3', 'cook12345678', 'Cooker 3'),
+(99, 'cook4', 'cook12345678', 'Cooker 4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `email`, `password`, `name`) VALUES
+(4, 'Ragulan28@gmail.com', '12345678q', 'Ragulan Gopalapillai'),
+(5, 'Ragulan28@gmail.com', '12345678q', 'qqq');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_order`
+--
+
+CREATE TABLE `customer_order` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `cooker_id` int(11) NOT NULL DEFAULT '0',
+  `seller_id` int(11) NOT NULL DEFAULT '0',
+  `no` int(11) NOT NULL DEFAULT '1',
+  `state` int(11) NOT NULL DEFAULT '0',
+  `price` varchar(450) NOT NULL,
+  `adress` varchar(450) NOT NULL,
+  `details` varchar(450) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer_order`
+--
+
+INSERT INTO `customer_order` (`id`, `name`, `customer_id`, `cooker_id`, `seller_id`, `no`, `state`, `price`, `adress`, `details`) VALUES
+(13, 'Pizza 1', 4, 97, 6, 1, 4, '250', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>s<br>East timor<br>', 'Paneer - 1<br>Olives - 1<br>Mushroom - 1<br>'),
+(14, 'Pizza 1', 4, 97, 6, 1, 4, '250', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>s<br>East timor<br>', 'Paneer - 1<br>Olives - 1<br>Mushroom - 1<br>'),
+(15, 'Pizza 1', 4, 98, 7, 1, 4, '250', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>n<br>Jamaica<br>', 'Paneer - 1<br>Olives - 1<br>Mushroom - 1<br>'),
+(16, 'pizza 2', 4, 97, 7, 3, 3, '111', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>v<br>Democratic republic of the congo<br>', 'Capsicum - 1<br>Olives - 1<br>'),
+(17, 'Pizza 1', 4, 97, 6, 3, 4, '250', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>v<br>Democratic republic of the congo<br>', 'Paneer - 1<br>Olives - 1<br>Mushroom - 1<br>'),
+(18, 'Pizza 5', 4, 97, 0, 1, 2, '324', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>f<br>Falkland islands<br>', 'Capsicum - 1<br>'),
+(19, 'Pizza 4', 4, 0, 0, 1, 0, '323', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>f<br>Falkland islands<br>', 'Mushroom - 1<br>'),
+(20, 'Pizza 3', 4, 0, 0, 1, 0, '212', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>f<br>Falkland islands<br>', 'Capsicum - 1<br>Paneer - 1<br>'),
+(21, 'pizza 2', 4, 0, 0, 1, 0, '111', 'Ragulan Gopalapillai<br>Karainagar<br>Jaffna<br>f<br>Falkland islands<br>', 'Capsicum - 1<br>Olives - 1<br>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ingredients`
+--
+
+CREATE TABLE `ingredients` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `icon` text NOT NULL,
+  `image` text NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ingredients`
+--
+
+INSERT INTO `ingredients` (`id`, `name`, `icon`, `image`, `price`) VALUES
+(20, 'Onion', 'foods/ingredients/icon/toppingsOnion.jpg', 'foods/ingredients/customise-pizza-onion.png', 5),
+(21, 'Capsicum', 'foods/ingredients/icon/toppingsCapsicum.jpg', 'foods/ingredients/customise-pizza-capsicum.png', 4),
+(22, 'Mushroom', 'foods/ingredients/icon/toppingsMushroom.jpg', 'foods/ingredients/customise-pizza-mushroom.png', 3),
+(23, 'Olives', 'foods/ingredients/icon/toppingsOlives.jpg', 'foods/ingredients/customise-pizza-greenOlives.png', 6),
+(24, 'Paneer', 'foods/ingredients/icon/toppingsPaneer.jpg', 'foods/ingredients/customise-pizza-paneer.png', 6),
+(25, 'aa', 'foods/ingredients/icon/toppingsJalapeno.jpg', 'foods/ingredients/customise-pizza-jalapeno.png', 24);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mainfood`
+--
+
+CREATE TABLE `mainfood` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `image` text NOT NULL,
+  `ingredients` text NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mainfood`
+--
+
+INSERT INTO `mainfood` (`id`, `name`, `image`, `ingredients`, `price`) VALUES
+(16, 'Pizza 1', 'foods/food/pizza1.png', 'Paneer - 1<br>Olives - 1<br>Mushroom - 1<br>', 250),
+(17, 'pizza 2', 'foods/food/pizza2.png', 'Capsicum - 1<br>Olives - 1<br>', 111),
+(18, 'Pizza 3', 'foods/food/pizza3.png', 'Capsicum - 1<br>Paneer - 1<br>', 212),
+(19, 'Pizza 4', 'foods/food/pizza4.png', 'Mushroom - 1<br>', 323),
+(20, 'Pizza 5', 'foods/food/pizza5.png', 'Capsicum - 1<br>', 324),
+(21, 'Pizza 5', 'foods/food/pizza1.png', 'Olives - 1<br>Capsicum - 1<br>', 234),
+(22, 'Pizza 8', 'foods/food/pizza5.png', 'Capsicum - 1<br>Paneer - 3<br>Olives - 1<br>', 2343),
+(23, 'Pizza 7', 'foods/food/pizza2.png', 'Olives - 2<br>Mushroom - 1<br>Capsicum - 1<br>', 111),
+(24, 'fbgrh', 'foods/food/pizza5.png', 'aa - 1<br>', 5963);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seller_details`
+--
+
+CREATE TABLE `seller_details` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `seller_details`
+--
+
+INSERT INTO `seller_details` (`id`, `email`, `password`, `name`) VALUES
+(6, 'dis 1', 'dis12345678', 'Distributor 1'),
+(7, 'dis 2', 'dis12345678', 'Distributor 1'),
+(8, 'dis 3', 'dis12345678', 'Distributor 3');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin_details`
+--
+ALTER TABLE `admin_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cooker_details`
+--
+ALTER TABLE `cooker_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customer_id`);
+
+--
+-- Indexes for table `customer_order`
+--
+ALTER TABLE `customer_order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ingredients`
+--
+ALTER TABLE `ingredients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mainfood`
+--
+ALTER TABLE `mainfood`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `seller_details`
+--
+ALTER TABLE `seller_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin_details`
+--
+ALTER TABLE `admin_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `cooker_details`
+--
+ALTER TABLE `cooker_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `customer_order`
+--
+ALTER TABLE `customer_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `ingredients`
+--
+ALTER TABLE `ingredients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `mainfood`
+--
+ALTER TABLE `mainfood`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT for table `seller_details`
+--
+ALTER TABLE `seller_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
